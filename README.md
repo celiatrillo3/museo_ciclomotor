@@ -7,7 +7,7 @@ El proyecto permite almacenar, consultar y administrar información relacionada 
 
 ## Vista previa
 
-![image](codigo/img/imagen_index.png)
+![image](codigo/img/image_index.png)
 
 ---
 
