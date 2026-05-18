@@ -1,0 +1,27 @@
+services:
+  mi-php:
+    build: .
+    ports:
+      -  "8081:80"
+    volumes:
+      - ./codigo/:/var/www/html
+    environment:
+      - APP_USER=${APP_USER}
+      - APP_PASSWORD=${APP_PASSWORD}
+      - APP_HOST=${APP_HOST}
+      - APP_DB_NAME=${DB_NAME}
+  mi-mariadb:
+    image: mariadb:latest
+    ports:
+      - "3307:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MARIADB_USER=${DB_USER}
+      - MARIADB_PASSWORD=${DB_PASSWORD}  
+      - MARIADB_DATABASE=${DB_NAME}
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+  mi-adminer:
+    image: adminer:latest
+    ports:
+      - "8080:8080"
